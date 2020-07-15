@@ -24,6 +24,10 @@ class ViewController: UIViewController {
         present(activityController, animated: true, completion: nil)
     }
     @IBAction func safariButton(_ sender: UIButton) {
+        if let url = URL(string: "http://www.apple.com"){
+            let safariViewController = SFSafariViewController(url: url)
+            present(safariViewController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func cameraButton(_ sender: UIButton) {
