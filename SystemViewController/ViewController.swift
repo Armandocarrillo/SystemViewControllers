@@ -7,14 +7,29 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    @IBAction func sharebutton(_ sender: UIButton) {
+        guard let image = imageView.image else {return}
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = sender
+        present(activityController, animated: true, completion: nil)
+    }
+    @IBAction func safariButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func cameraButton(_ sender: UIButton) {
+    }
+    @IBAction func emailButton(_ sender: UIButton) {
+    }
+    
 }
 
