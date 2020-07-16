@@ -8,8 +8,9 @@
 
 import UIKit
 import SafariServices
+import MessageUI
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -51,6 +52,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
        alertController.addAction(photoLibraryAction)
        */
         if UIImagePickerController.isSourceTypeAvailable(.camera){
+            print("User selected camera action")
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {action in imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
             })
@@ -58,11 +60,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         }
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            print("User selected photo library action")
             let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: {action in imagePicker.sourceType = .photoLibrary
                 self.present(imagePicker, animated: true, completion: nil)
             })
-           alertController.addAction(photoLibraryAction)
+            alertController.addAction(photoLibraryAction)
         }
+        
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[UIImagePickerController.InfoKey : Any]){
             
@@ -71,10 +75,26 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
                 dismiss(animated: true, completion: nil)
             }
         }
+    
+        
         alertController.popoverPresentationController?.sourceView = sender
         present(alertController, animated: true, completion: nil)
     }
     @IBAction func emailButton(_ sender: UIButton) {
+        print("User selected email action")
+        guard MFMailComposeViewController.canSendMail() else {
+            print("Can not send mail")
+            return
+        }
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        mailComposer.setToRecipients(["ingcompuarmando@gmail.com"])
+        mailComposer.setSubject("Look at this.")
+        mailComposer.setMessageBody("Hello, this is an email from the app I made", isHTML: false)
+        present(mailComposer, animated: true, completion: nil)
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

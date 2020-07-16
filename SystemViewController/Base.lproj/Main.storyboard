@@ -48,7 +48,6 @@
                                         <rect key="frame" x="335" y="0.0" width="37" height="30"/>
                                         <state key="normal" title="Email"/>
                                         <connections>
-                                            <action selector="cameraButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JKK-pr-8xB"/>
                                             <action selector="emailButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kCZ-kr-gkX"/>
                                         </connections>
                                     </button>
