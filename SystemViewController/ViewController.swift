@@ -10,7 +10,9 @@ import UIKit
 import SafariServices
 import MessageUI
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
+class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
+    
+    
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -88,12 +90,30 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         }
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
-        mailComposer.setToRecipients(["ingcompuarmando@gmail.com"])
+        mailComposer.setToRecipients(["example@gmail.com"])
         mailComposer.setSubject("Look at this.")
         mailComposer.setMessageBody("Hello, this is an email from the app I made", isHTML: false)
         present(mailComposer, animated: true, completion: nil)
     }
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func textButton(_ sender: UIButton) {
+        print("User selected text action")
+        guard MFMessageComposeViewController.canSendText() else {
+            print ("Can not send text")
+            return
+        }
+        let textComposer = MFMessageComposeViewController()
+        textComposer.messageComposeDelegate = self
+        textComposer.recipients = ["1234567890"]
+        textComposer.body = "Hello baby"
+        present(textComposer, animated: true, completion: nil)
+        
+        
+    }
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         dismiss(animated: true, completion: nil)
     }
     

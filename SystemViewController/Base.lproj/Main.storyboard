@@ -18,8 +18,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="andre-arroyo-PfNztXKeoQs-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="IfU-9c-5De">
                                 <rect key="frame" x="0.0" y="44" width="414" height="473"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="dJ3-vT-dad">
-                                <rect key="frame" x="21" y="525" width="372" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJ3-vT-dad">
+                                <rect key="frame" x="16.5" y="525" width="381" height="30"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vus-sh-k19">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
@@ -30,7 +30,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyj-OQ-CVh">
-                                        <rect key="frame" x="107" y="0.0" width="40" height="30"/>
+                                        <rect key="frame" x="85" y="0.0" width="40" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Safari"/>
                                         <connections>
@@ -38,17 +38,24 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agP-xu-dhc">
-                                        <rect key="frame" x="214" y="0.0" width="54" height="30"/>
+                                        <rect key="frame" x="170" y="0.0" width="54" height="30"/>
                                         <state key="normal" title="Camera"/>
                                         <connections>
                                             <action selector="cameraButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h3P-WN-2o6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgN-VL-3jB">
-                                        <rect key="frame" x="335" y="0.0" width="37" height="30"/>
+                                        <rect key="frame" x="269" y="0.0" width="37" height="30"/>
                                         <state key="normal" title="Email"/>
                                         <connections>
                                             <action selector="emailButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kCZ-kr-gkX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3f-OE-LHL">
+                                        <rect key="frame" x="351" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Text"/>
+                                        <connections>
+                                            <action selector="textButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sik-TA-Kzo"/>
                                         </connections>
                                     </button>
                                 </subviews>
