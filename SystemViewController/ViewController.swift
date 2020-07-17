@@ -58,6 +58,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {action in imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
             })
+            
             alertController.addAction(cameraAction)
         }
         
@@ -66,22 +67,25 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: {action in imagePicker.sourceType = .photoLibrary
                 self.present(imagePicker, animated: true, completion: nil)
             })
+            
             alertController.addAction(photoLibraryAction)
         }
         
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[UIImagePickerController.InfoKey : Any]){
-            
-            if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-                imageView.image = selectedImage
-                dismiss(animated: true, completion: nil)
-            }
-        }
-    
         
+        
+                
         alertController.popoverPresentationController?.sourceView = sender
         present(alertController, animated: true, completion: nil)
     }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[UIImagePickerController.InfoKey : Any]){
+        
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            imageView.image = selectedImage
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func emailButton(_ sender: UIButton) {
         print("User selected email action")
         guard MFMailComposeViewController.canSendMail() else {
